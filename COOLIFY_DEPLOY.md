@@ -41,7 +41,8 @@ MCP_LOG_LEVEL=INFO
 ```
 
 ### 3. Configuración de Red
-- **Puerto interno**: 8080
+- **Puerto interno**: 8080 (container)
+- **Puerto externo**: 3001 (host) - Configurable en docker-compose
 - **Dominio**: Configura tu dominio o subdominio
 - **HTTPS**: Habilitar (recomendado)
 
