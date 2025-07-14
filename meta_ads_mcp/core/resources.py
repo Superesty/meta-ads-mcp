@@ -1,5 +1,6 @@
 """Resource handling for Meta Ads API."""
 
+import json
 from typing import Dict, Any
 import base64
 from .utils import ad_creative_images
@@ -43,4 +44,4 @@ async def get_resource(resource_id: str) -> Dict[str, Any]:
         }
     
     # Resource not found
-    return {"error": f"Resource not found: {resource_id}"} 
+    return json.dumps({"error": f"Resource not found: {resource_id}"}, indent=2) 

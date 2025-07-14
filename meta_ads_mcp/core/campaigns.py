@@ -30,7 +30,7 @@ async def get_campaigns(access_token: str = None, account_id: str = None, limit:
     """
     # If no account ID is specified, try to get the first one for the user
     if not account_id:
-        accounts_json = await get_ad_accounts("me", json.dumps({"limit": 1}), access_token)
+        accounts_json = await get_ad_accounts(access_token=access_token, user_id="me", limit=1)
         accounts_data = json.loads(accounts_json)
         
         if "data" in accounts_data and accounts_data["data"]:
