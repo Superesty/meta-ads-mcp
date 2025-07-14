@@ -29,6 +29,12 @@ debug/
 # Keep organized directories but exclude some debug content
 !debug/README.md
 
+# Docker Compose - KEEP BOTH EXTENSIONS (.yml AND .yaml)
+# Some platforms expect .yaml, others expect .yml
+# We maintain both for maximum compatibility
+!docker-compose.yml
+!docker-compose.yaml
+
 # Sensitive configuration files with tokens and credentials
 *.env
 .env*

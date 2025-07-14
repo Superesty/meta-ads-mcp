@@ -20,6 +20,13 @@ git push origin main
    - Source: Tu repositorio Git
    - Branch: `main`
 
+### 📁 Archivos Docker Compose
+**Importante**: El repositorio incluye ambos archivos para máxima compatibilidad:
+- `docker-compose.yml` (extensión estándar)
+- `docker-compose.yaml` (extensión alternativa)
+
+Coolify automáticamente detectará el archivo correcto según su configuración.
+
 ### 2. Variables de Entorno
 En Coolify, configura estas variables de entorno:
 
