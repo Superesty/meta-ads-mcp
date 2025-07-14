@@ -21,8 +21,8 @@ RUN uv pip install --system -r requirements.txt
 # Copy the rest of the application
 COPY . .
 
-# Install the package in development mode
-RUN uv pip install --system -e .
+# Install the package in production mode (not editable)
+RUN uv pip install --system .
 
 # Expose port 8080 for HTTP transport
 EXPOSE 8080

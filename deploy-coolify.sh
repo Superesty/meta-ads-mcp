@@ -17,7 +17,6 @@ if [ ! -f ".dockerignore" ]; then
     cat > .dockerignore << EOF
 .git
 .gitignore
-README.md
 .pytest_cache
 .coverage
 *.pyc
@@ -28,10 +27,21 @@ venv/
 *.log
 tests/
 examples/
-*.md
 .github/
 start_with_token.bat
 deploy-coolify.sh
+coolify.env.example
+
+# Exclude documentation files except README.md (required for build)
+DEVELOPMENT.md
+EJECUTAR_SERVIDOR.md
+COOLIFY_DEPLOY.md
+TRANSPORT_CONFIGURATIONS.md
+SECURITY.md
+COMMIT_SUMMARY.md
+DOCKER_COMPOSE_INFO.md
+*.md
+!README.md
 EOF
     echo "✅ .dockerignore creado"
 fi
