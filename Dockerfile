@@ -21,5 +21,15 @@ RUN uv pip install --system -r requirements.txt
 # Copy the rest of the application
 COPY . .
 
-# Command to run the Meta Ads MCP server
-CMD ["python", "-m", "meta_ads_mcp"] 
+# Install the package in development mode
+RUN uv pip install --system -e .
+
+# Expose port 8080 for HTTP transport
+EXPOSE 8080
+
+# Set environment variables
+ENV PYTHONPATH="/app"
+ENV MCP_LOG_LEVEL="INFO"
+
+# Command to run the Meta Ads MCP server in HTTP mode
+CMD ["python", "-m", "meta_ads_mcp", "--transport", "streamable-http", "--port", "8080", "--host", "0.0.0.0"] 

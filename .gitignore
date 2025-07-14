@@ -29,4 +29,41 @@ debug/
 # Keep organized directories but exclude some debug content
 !debug/README.md
 
+# Sensitive configuration files with tokens and credentials
+*.env
+.env*
+!.env.example
+coolify.env
+!coolify.env.example
+**/secrets.json
+**/credentials.json
+**/*token*.json
+**/*secret*.json
+**/*key*.json
+
+# Development configuration files with real tokens
+start_with_token.bat
+**/production-config.json
+**/config-production.json
+client-config-production.json
+!client-config-production.json.example
+
+# Authentication and token files
+auth_tokens.json
+meta_tokens.json
+access_tokens.json
+pipeboard_tokens.json
+**/*_tokens.json
+**/*_credentials.json
+
+# Local development overrides
+.local.env
+local.env
+dev.env
+production.env
+
+# IDE and editor specific files with potentially sensitive data
+.vscode/settings.json
+.cursor/rules/meta-ads-credentials.mdc
+
 internal/

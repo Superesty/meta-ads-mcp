@@ -346,13 +346,13 @@ def main():
             # Setup the FastMCP HTTP auth integration
             setup_fastmcp_http_auth(mcp_server)
             logger.info("FastMCP HTTP authentication integration setup successful")
-            print("✅ FastMCP HTTP authentication integration enabled")
+            print("[OK] FastMCP HTTP authentication integration enabled")
             print("   - Bearer tokens via Authorization: Bearer <token> header")
             print("   - Direct Meta tokens via X-META-ACCESS-TOKEN header")
             
         except Exception as e:
             logger.error(f"Failed to setup FastMCP HTTP authentication integration: {e}")
-            print(f"⚠️  FastMCP HTTP authentication integration setup failed: {e}")
+            print("[WARNING] FastMCP HTTP authentication integration setup failed: {e}")
             print("   Server will still start but may not support header-based auth")
         
         # Log final server configuration
@@ -366,7 +366,7 @@ def main():
         # Start the FastMCP server with Streamable HTTP transport
         try:
             logger.info("Starting FastMCP server with Streamable HTTP transport")
-            print(f"✅ Server configured successfully")
+            print(f"[OK] Server configured successfully")
             print(f"   URL: http://{args.host}:{args.port}{mcp_server.settings.streamable_http_path}/")
             print(f"   Mode: {'Stateless' if mcp_server.settings.stateless_http else 'Stateful'}")
             print(f"   Format: {'JSON' if mcp_server.settings.json_response else 'SSE'}")
