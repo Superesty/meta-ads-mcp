@@ -165,6 +165,35 @@ async def try_multiple_download_methods(url: str) -> Optional[bytes]:
     return None
 
 
+def extract_creative_image_urls(creative: Dict[str, Any]) -> Dict[str, str]:
+    """
+    Extrae las URLs de imagen disponibles de un objeto de creatividad publicitaria.
+
+    Args:
+        creative: El diccionario que representa la creatividad de un anuncio.
+
+    Returns:
+        Un diccionario que contiene las URLs encontradas (thumbnail y/o principal).
+    """
+    image_urls = {}
+    
+    # Extraer la URL de la miniatura si existe
+    if 'thumbnail_url' in creative and creative['thumbnail_url']:
+        image_urls['thumbnail'] = creative['thumbnail_url']
+        
+    # Extraer la URL de la imagen principal si existe
+    if 'image_url' in creative and creative['image_url']:
+        image_urls['main_image'] = creative['image_url']
+        
+    # También se puede buscar en object_story_spec, que es una ubicación común
+    if 'object_story_spec' in creative:
+        link_data = creative['object_story_spec'].get('link_data', {})
+        # A veces la URL está aquí en lugar de en el nivel superior
+        if 'image_url' in link_data and link_data['image_url'] and 'main_image' not in image_urls:
+            image_urls['main_image'] = link_data['image_url']
+            
+    return image_urls
+    
 def create_resource_from_image(image_bytes: bytes, resource_id: str, name: str) -> Dict[str, Any]:
     """
     Create a resource entry from image bytes.
