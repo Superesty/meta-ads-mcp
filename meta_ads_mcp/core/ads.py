@@ -176,12 +176,12 @@ async def get_ad_creatives(access_token: str = None, ad_id: str = None) -> str:
     data = await make_api_request(endpoint, access_token, params)
 
 # Esta sección ahora funcionará correctamente
-if 'data' in data:
-    for creative in data['data']:
-        # Llama a la nueva función de utilidad
-        creative['image_urls_for_viewing'] = extract_creative_image_urls(creative)
-
-return json.dumps(data, indent=2)
+    if 'data' in data:
+        for creative in data['data']:
+            # Llama a la nueva función de utilidad
+            creative['image_urls_for_viewing'] = extract_creative_image_urls(creative)
+    
+    return json.dumps(data, indent=2)
 
 @mcp_server.tool()
 @meta_api_tool
