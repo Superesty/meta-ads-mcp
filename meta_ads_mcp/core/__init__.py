@@ -9,7 +9,7 @@ from .insights import get_insights
 from .authentication import get_login_link
 from .server import login_cli, main
 from .auth import login
-from .ads_library import search_ads_archive
+from .ads_library import search_ads_archive, upload_video_from_supabase, list_account_videos, list_supabase_videos
 from .budget_schedules import create_budget_schedule
 from . import reports  # Import module to register conditional tools
 from . import duplication  # Import module to register conditional duplication tools
@@ -37,5 +37,8 @@ __all__ = [
     'login',
     'main',
     'search_ads_archive',
+    'upload_video_from_supabase',
+    'list_account_videos',
+    'list_supabase_videos',
     'create_budget_schedule',
 ] 
