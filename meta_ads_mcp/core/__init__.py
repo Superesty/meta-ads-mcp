@@ -13,6 +13,8 @@ from .ads_library import search_ads_archive
 from .budget_schedules import create_budget_schedule
 from . import reports  # Import module to register conditional tools
 from . import duplication  # Import module to register conditional duplication tools
+from . import leadgen_forms  # Import module to register lead form tools
+from . import search_targeting  # Import module to register search and targeting tools
 
 __all__ = [
     'mcp_server',
